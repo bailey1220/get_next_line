@@ -6,7 +6,7 @@
 /*   By: bailey <bailey@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 15:47:36 by bailey            #+#    #+#             */
-/*   Updated: 2024/09/09 18:29:52 by bailey           ###   ########.fr       */
+/*   Updated: 2024/09/17 12:59:36 by bailey           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,12 @@
 # include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <stdint.h>
-
+# include <unistd.h>
 
 size_t		ft_strlen(const char *str);
 void		*ft_calloc(size_t num, size_t size);
 char		*ft_strchr(const char *str, int c);
-char		*ft_strjoin(char *s1, char *s2);
-char        *ft_strdup(const char *s);
+char		*ft_strjoin(char const *s1, char const *s2);
 char		*get_next_line(int fd);
 
 #endif
