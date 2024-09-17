@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bailey <bailey@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bachai <bachai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 16:02:36 by bailey            #+#    #+#             */
-/*   Updated: 2024/09/17 13:04:18 by bailey           ###   ########.fr       */
+/*   Updated: 2024/09/17 18:30:17 by bachai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
-
+#include "get_next_line.h"
 // read from the file and update buffer with new content
 static char	*read_txt(int fd, char *buff)
 {
@@ -41,24 +40,24 @@ static char	*read_txt(int fd, char *buff)
 char	*extract(char *buff)
 {
 	char	*str;
-	int		sbuff_len;
+	int		buff_len;
 
 	if (!buff[0])
 		return (NULL);
-	sbuff_len = 0;
-	while (buff[sbuff_len] != '\n' && buff[sbuff_len] != '\0')
-		sbuff_len++;
-	str = ft_calloc(1, sbuff_len + 2);
+	buff_len = 0;
+	while (buff[buff_len] != '\n' && buff[buff_len] != '\0')
+		buff_len++;
+	str = ft_calloc(1, buff_len + 2);
 	if (!str)
 		return (NULL);
-	sbuff_len = 0;
-	while (buff[sbuff_len] != '\n' && buff[sbuff_len] != '\0')
+	buff_len = 0;
+	while (buff[buff_len] != '\n' && buff[buff_len] != '\0')
 	{
-		str[sbuff_len] = buff[sbuff_len];
-		sbuff_len++;
+		str[buff_len] = buff[buff_len];
+		buff_len++;
 	}
-	if (buff[sbuff_len] == '\n')
-		str[sbuff_len] = '\n';
+	if (buff[buff_len] == '\n')
+		str[buff_len] = '\n';
 	return (str);
 }
 
@@ -95,13 +94,30 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	if (!buff)
-		buff = ft_strdup("");
-	buff[fd] = read_txt(fd, buff);
+	buff = read_txt(fd, buff);
 	if (!buff)
 		return (NULL);
 	store_nline = extract(buff);
-	buff[fd] = update(buff);
+	buff = update(buff);
 	return (store_nline);
 }
+/*
+int	main(void)
+{
+	char	*line;
+	int		i;
+	int		fd1;
 
+	fd1 = open("file.txt", O_RDONLY);
+	i = 1;
+	while (i < 4)
+	{
+		line = get_next_line(fd1);
+		printf("line [%02d]: %s", i, line);
+		free(line);
+		i++;
+	}
+	close(fd1);
+	return (0);
+}
+*/

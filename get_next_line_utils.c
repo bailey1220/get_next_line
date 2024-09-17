@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bailey <bailey@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bachai <bachai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 14:52:27 by bailey            #+#    #+#             */
-/*   Updated: 2024/09/17 12:59:31 by bailey           ###   ########.fr       */
+/*   Updated: 2024/09/17 18:24:35 by bachai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
 
 size_t	ft_strlen(char	const *str)
 {
@@ -87,4 +84,24 @@ char	*ft_strchr(const char *str, int c)
 	if (c == 0)
 		return ((char *)str + i);
 	return (NULL);
+}
+
+char	*ft_strdup(const char *s)
+{
+	int		i;
+	int		j;
+	char	*str;
+
+	i = 0;
+	j = ft_strlen(s);
+	str = (char *)malloc(sizeof(*str) * (j + 1));
+	if (!str)
+		return (NULL);
+	while (i < j)
+	{
+		str[i] = s[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
