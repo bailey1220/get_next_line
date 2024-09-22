@@ -6,7 +6,7 @@
 /*   By: bachai <bachai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 16:02:36 by bailey            #+#    #+#             */
-/*   Updated: 2024/09/17 18:30:17 by bachai           ###   ########.fr       */
+/*   Updated: 2024/09/22 16:38:33 by bachai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static char	*read_txt(int fd, char *buff)
 		if (count == -1)
 		{
 			free(tmp);
+			free(buff);
 			return (NULL);
 		}
 		tmp[count] = '\0';

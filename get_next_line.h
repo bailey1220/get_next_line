@@ -6,7 +6,7 @@
 /*   By: bachai <bachai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 15:47:36 by bailey            #+#    #+#             */
-/*   Updated: 2024/09/17 18:26:52 by bachai           ###   ########.fr       */
+/*   Updated: 2024/09/22 16:03:55 by bachai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <fcntl.h>
 # include <limits.h>
 # include <stdio.h>
+# include <stdint.h>
 
 size_t		ft_strlen(const char *str);
 void		*ft_calloc(size_t num, size_t size);
